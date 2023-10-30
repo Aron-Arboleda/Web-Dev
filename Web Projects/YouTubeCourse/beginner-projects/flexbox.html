@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox Practice</title>
+
+    <link rel="stylesheet" href="styles/flexbox.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  </head>
+  <body style="padding-bottom: 1000px;">
+    <div style="
+      display: flex;
+      flex-direction: row;
+    ">
+      <div style="background-color: lightblue;">div 1</div>
+      <div style="background-color: lightpink;">div 2</div>
+    </div>
+
+    <div style="
+      margin-top: 30px;
+      display: flex;
+      flex-direction: row;
+    ">
+      <div style="
+        background-color: lightblue;
+        width: 100px;
+      ">100px</div>
+      <div style="
+        background-color: lightpink;
+        flex: 1;
+      ">flex: 1</div>
+    </div>
+
+    <div style="
+      margin-top: 30px;
+      display: flex;
+      flex-direction: row;
+    ">
+      <div style="
+        background-color: lightblue;
+        width: 100px;
+      ">100px</div>
+      <div style="
+        background-color: lightpink;
+        flex: 1;
+      ">flex: 1</div>
+      <div style="
+      background-color: lightblue;
+      width: 100px;
+      flex: 2;
+    ">flex: 2</div>
+    </div>
+
+    <div style="
+      margin-top: 30px;
+      height: 70px;
+      display: flex;
+      flex-direction: row;
+      border: 1px solid gray;
+      justify-content: center;
+    ">
+      <div style="
+        background-color: lightblue;
+        width: 100px;
+      ">100px</div>
+      <div style="
+        background-color: lightpink;
+        width: 100px;
+      ">100px</div>
+      <div style="
+        background-color: lightblue;
+        width: 100px;
+      ">100px</div>
+    </div>
+
+    <div style="
+      margin-top: 30px;
+      height: 70px;
+      display: flex;
+      flex-direction: row;
+      border: 1px solid gray;
+      justify-content: space-between;
+    ">
+      <div style="
+        background-color: lightblue;
+        width: 100px;
+      ">100px</div>
+      <div style="
+        background-color: lightpink;
+        width: 100px;
+      ">100px</div>
+      <div style="
+        background-color: lightblue;
+        width: 100px;
+      ">100px</div>
+    </div>
+
+    <div style="
+      margin-top: 30px;
+      height: 70px;
+      display: flex;
+      flex-direction: row;
+      border: 1px solid gray;
+      justify-content: space-between;
+      align-items: stretch;
+    ">
+      <div style="
+        background-color: lightblue;
+        width: 100px;
+      ">100px</div>
+      <div style="
+        background-color: lightpink;
+        width: 100px;
+      ">100px</div>
+      <div style="
+        background-color: lightblue;
+        width: 100px;
+      ">100px</div>
+    </div>
+
+    <div style="
+      margin-top: 20px;
+      display: flex;
+    ">
+      <div style="width: 200px; background-color: lightblue;">200px</div>
+      <div style="width: 75px; background-color: lightpink;">75px</div>
+    </div>
+
+    <div style="
+      margin-top: 20px;
+      display: flex;
+    ">
+      <div style="width: 50px; background-color: lightblue;">item1</div>
+      <div style="flex: 1; background-color: lightpink;">item2</div>
+      <div style="width: 75px; background-color: lightblue;">item3</div>
+    </div>
+
+    <div style="
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+    ">
+      <div style="background-color: lightpink;">item1</div>
+      <div style="background-color: lightpink;">item2</div>
+      <div style="background-color: lightpink;">item3</div>
+      <div style="background-color: lightpink;">item4</div>
+    </div>
+
+    <div style="
+      margin-top: 20px;
+      display: flex;
+      height: 50px;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid gray;
+    ">
+      <div style="background-color: lightpink;">item1</div>
+      <div style="background-color: lightpink;">item2</div>
+    </div>
+
+    <div style="
+      font-family: Roboto;
+      width: 250px;
+      margin-top: 20px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 0 3px gray;
+      border-radius: 6px;
+      row-gap: 12px;
+    ">
+      <div style="
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      ">
+        <div class="title">Home</div>
+        <div class="total">
+          <p class="total-string">14</p>
+        </div>
+      </div>
+      <div style="
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      ">
+        <div class="title">Notifications</div>
+        <div class="total">
+          <p class="total-string">3</p>
+        </div>
+      </div>
+      <div style="
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      ">
+        <div class="title">Messages</div>
+        <div class="total">
+          <p class="total-string">5</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="div-group">
+      <div class="container">
+        <div class="profile-div">
+          <img
+            class="profile-image"
+            src="https://bestlifeonline.com/wp-content/uploads/sites/3/2020/01/chinchilla.jpg"
+          />
+        </div>
+        <div class="info-div">
+          <p class="username">oliver</p>
+          <p class="realname">the chinchilla</p>
+          <p class="tag">Popular</p>
+        </div>
+        <div class="button-div">
+          <button class="follow-button">Follow</button>
+        </div>
+      </div>
+      <br />
+
+      <div class="container">
+        <div class="profile-div">
+          <img
+            class="profile-image"
+            src="https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cq_auto:eco%2Cw_1200/MTk3MjI5OTczMDA0NjI0OTc5/cute-pet-names.png"
+          />
+        </div>
+        <div class="info-div">
+          <p class="username">Mimi</p>
+          <p class="realname">the cat</p>
+          <p class="tag">Popular</p>
+        </div>
+        <div class="button-div">
+          <button class="follow-button">Follow</button>
+        </div>
+      </div>
+      <br />
+
+      <div class="container">
+        <div class="profile-div">
+          <img
+            class="profile-image"
+            src="https://02dd5f64038d9e2d7aae-56d86e996af26366aec8b255ed6f7c7b.ssl.cf3.rackcdn.com/img-EKsE7eY6-large.jpg"
+          />
+        </div>
+        <div class="info-div">
+          <p class="username">Rex</p>
+          <p class="realname">the dog</p>
+          <p class="tag">Popular</p>
+        </div>
+        <div class="button-div">
+          <button class="follow-button">Follow</button>
+        </div>
+      </div>
+      <br />
+    </div>
+
+    <div style="
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      background-color: rgba(47, 6, 124, 0.596);
+      padding-top: 7px;
+      padding-bottom: 7px;
+      padding-left: 13px;
+      padding-right: 7px;
+      align-items: center;
+      font-family: Roboto;
+    ">
+      <div style="
+        color: white;
+        font-weight: 500;
+        font-size: 15px;
+      ">Home</div>
+      <div style="
+        flex:1;
+        margin-right: 70px;
+        margin-left: 70px;
+      "><input type="search" placeholder="Search" style="
+        width: 100%;
+        padding-left: 15px;
+        padding-right: 5px;
+        padding-top: 7px;
+        padding-bottom: 7px;
+        border-radius: 16px;
+        border: none;
+        font-size: 12px;
+      "></div>
+      <div><button style="
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 7px;
+        padding-bottom: 7px;
+        background-color: transparent;
+        border: 1px solid white;
+        border-radius: 2px;
+        color: white;
+        font-family: Roboto;
+      ">Download</button></div>
+    </div>
+
+    
+  </body>
+</html>

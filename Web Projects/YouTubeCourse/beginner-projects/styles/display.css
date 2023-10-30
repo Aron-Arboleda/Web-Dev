@@ -1,0 +1,89 @@
+.name-field,.email-field {
+  display: block;
+  margin-top: 5px;
+}
+
+.b8-1 {
+  display: inline-block;
+  width: 200px;
+}
+
+.b8-1, .b8-2, .b8-3 {
+  vertical-align: middle;
+}
+
+.google-image {
+  display: block;
+  width: 200px;
+  margin-left: 100px;
+}
+
+.googleSearchBar {
+  width: 400px;
+  padding: 10px 10px 10px 15px;
+  border: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.37);
+  border-radius: 20px;
+  margin-bottom: 40px;
+  display: block;
+}
+
+.text-field {
+  padding: 10px 10px 10px 10px;
+  border-radius: 7px;
+  border: 1px solid rgb(190, 190, 190);
+  width: 120px;
+}
+
+.d8-1 {
+  margin-top: 7px;
+  margin-bottom: 7px;
+  width: 266px;
+}
+
+.d8-2 {
+  background-color: rgb(70, 124, 243);
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-family: Arial;
+  border-radius: 7px;
+  padding: 10px 118px 10px 118px ;
+  margin-bottom: 50px;
+}
+
+.e8-1 {
+  font-family: Arial;
+  font-size: x-large;
+  margin-bottom: 20px;
+}
+
+.e8-2,.e8-3 {
+  font-family: Arial;
+  font-size: x-small;
+  margin-top: 0;
+  margin-bottom: 5px;
+  padding: 10px 10px 10px 15px;
+  border: none;
+  background-color: rgb(235, 234, 234);
+  width: 265px;
+}
+
+.e8-4 {
+  margin-top: 25px;
+  margin-right: 10px;
+  padding: 10px 20px 10px 20px;
+  background-color: black;
+  color: white;
+  border: none;
+  font-size: x-small;
+}
+
+.e8-5 {
+  margin-top: 25px;
+  padding: 10px 20px 10px 20px;
+  background-color: rgb(235, 234, 234);
+  color: black;
+  border: none;
+  font-size: x-small;
+}

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Positioning Practice 2</title>
+
+    <link rel="stylesheet" href="styles/position2.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="add-friend-header">
+      <div style="
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
+        ">
+        <img
+          class="profile-image"
+          src="https://02dd5f64038d9e2d7aae-56d86e996af26366aec8b255ed6f7c7b.ssl.cf3.rackcdn.com/img-EKsE7eY6-large.jpg"
+        />
+        <p class="username">Hot Dog</p>
+      </div>
+      <div style="
+        display: flex;
+        align-items: center;
+        column-gap: 7px;
+      ">
+        <button class="add-friend-button">Add Friend</button>
+        <button class="message-button">Message</button>
+      </div>
+    </div>
+    
+    <div class="discord-sidebar">
+      <div class="channels-bar">
+        <img
+          class="channel-image"
+          src="https://02dd5f64038d9e2d7aae-56d86e996af26366aec8b255ed6f7c7b.ssl.cf3.rackcdn.com/img-EKsE7eY6-large.jpg"
+        />
+        <img
+          class="channel-image"
+          src="https://bestlifeonline.com/wp-content/uploads/sites/3/2020/01/chinchilla.jpg"
+        />
+        <img
+          class="channel-image"
+          src="https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cq_auto:eco%2Cw_1200/MTk3MjI5OTczMDA0NjI0OTc5/cute-pet-names.png"
+        />
+      </div>
+      <div class="channel-content">
+        <div style="
+          display: flex;
+          flex-direction: column;
+          row-gap: 10px;
+          ">
+          <div style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            ">
+            <p class="section-title">INFO</p>
+            <button class="section-addChat-button">+</button>
+          </div>
+          <div style="
+            display: flex;
+            flex-direction: column;
+            row-gap: 14px;
+          ">
+            <div class="chat">
+              <div class="chat-icon">#</div>
+              <div class="chat-title">new-videos</div>
+            </div>
+            <div class="chat">
+              <div class="chat-icon">#</div>
+              <div class="chat-title">updates</div>
+            </div>
+            <div class="chat">
+              <div class="chat-icon">#</div>
+              <div class="chat-title">faq</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="
+          display: flex;
+          flex-direction: column;
+          row-gap: 10px;
+          ">
+          <div style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            ">
+            <p class="section-title">GENERAL</p>
+            <button class="section-addChat-button">+</button>
+          </div>
+          <div style="
+            display: flex;
+            flex-direction: column;
+            row-gap: 14px;
+          ">
+            <div class="chat">
+              <div class="chat-icon">#</div>
+              <div class="chat-title">lounge</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="
+          display: flex;
+          flex-direction: column;
+          row-gap: 10px;
+          ">
+          <div style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            ">
+            <p class="section-title">SCHOOL WORKS</p>
+            <button class="section-addChat-button">+</button>
+          </div>
+          <div style="
+            display: flex;
+            flex-direction: column;
+            row-gap: 14px;
+          ">
+            <div class="chat">
+              <div class="chat-icon">#</div>
+              <div class="chat-title">assignments</div>
+            </div>
+            <div class="chat">
+              <div class="chat-icon">#</div>
+              <div class="chat-title">events</div>
+            </div>
+            <div class="chat">
+              <div class="chat-icon">#</div>
+              <div class="chat-title">officers-lobby</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

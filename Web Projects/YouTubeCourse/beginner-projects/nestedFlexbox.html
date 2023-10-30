@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nested Flexbox Practice</title>
+
+    <link rel="stylesheet" href="styles/nestedFlexbox.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div style="
+      display: flex;
+      flex-direction: row;
+    ">
+      <div style="
+        background-color: lightpink;
+        width: 100px;
+        display: flex;
+        justify-content: center;
+      "><p style="color: white; background-color: black;">item1</p></div>
+      <div style="
+        background-color: lightblue;
+        width: 200px;
+      "></div>
+    </div>
+
+    <div style="
+      margin-top: 30px;
+      display: flex;
+      flex-direction: row;
+    ">
+      <div style="
+        background-color: lightpink;
+        width: 100px;
+      ">
+
+      </div>
+      <div style="
+        background-color: lightblue;
+        width: 200px;
+      ">
+        <div>row1</div>
+        <div style="
+          display: flex;
+          justify-content: space-between;
+        "><p class="parag" style="color: white; background-color: black;">row2</p><p class="parag" style="color: white; background-color: black;">row2</p></div>
+      </div>
+
+      
+    </div>
+
+    <div style="
+      display: flex;
+      flex-direction: column;
+      margin: 30px;
+      padding-top: 8px;
+      padding-right: 14px;
+      padding-bottom: 23px;
+      padding-left: 14px;
+      border-radius: 3px;
+      box-shadow: 0 0 5px rgb(151, 151, 151);
+      width: fit-content;
+      font-family: Roboto;
+      row-gap: 20px;
+    ">
+      <div class="title-div">ALL INBOXES</div>
+      <div style="
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      ">
+        <div class="profile-div">
+          <img
+            class="profile-image"
+            src="https://bestlifeonline.com/wp-content/uploads/sites/3/2020/01/chinchilla.jpg"
+          />
+        </div>
+        <div class="info-div">
+          <div style="
+            display: flex;
+            justify-content: space-between;  
+          ">
+            <p class="info-text email-title">Chewy Promotions</p>
+            <p class="info-text time-sent">4:58 PM</p>
+          </div>
+          <p class="info-text email-subject">Biggest sales of the year!</p>
+          <p class="info-text email-body-preview">Hey there! We're writing to tell you about our...</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="
+      display: flex;
+      flex-direction: column;
+      margin: 30px;
+      padding-top: 8px;
+      padding-right: 14px;
+      padding-bottom: 23px;
+      padding-left: 14px;
+      border-radius: 3px;
+      box-shadow: 0 0 5px rgb(151, 151, 151);
+      width: fit-content;
+      font-family: Roboto;
+      row-gap: 18px;
+    ">
+      <div class="title-div">ALL INBOXES</div>
+      <div style="
+        display: flex;
+        flex-direction: column;
+        row-gap: 17px;
+      ">
+        <div style="
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+        ">
+          <div class="profile-div">
+            <img
+              class="profile-image"
+              src="https://bestlifeonline.com/wp-content/uploads/sites/3/2020/01/chinchilla.jpg"
+            />
+          </div>
+          <div class="info-div">
+            <div style="
+              display: flex;
+              justify-content: space-between;  
+            ">
+              <p class="info-text email-title">Chewy Promotions</p>
+              <p class="info-text time-sent">4:58 PM</p>
+            </div>
+            <p class="info-text email-subject">Biggest sales of the year!</p>
+            <p class="info-text email-body-preview">Hey there! We're writing to tell you about our...</p>
+          </div>
+        </div>
+
+        <div style="
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+        ">
+          <div class="profile-div">
+            <img
+              class="profile-image"
+              src="https://02dd5f64038d9e2d7aae-56d86e996af26366aec8b255ed6f7c7b.ssl.cf3.rackcdn.com/img-EKsE7eY6-large.jpg"
+            />
+          </div>
+          <div class="info-div">
+            <div style="
+              display: flex;
+              justify-content: space-between;  
+            ">
+              <p class="info-text email-title">Best Buy</p>
+              <p class="info-text time-sent">12:32 PM</p>
+            </div>
+            <p class="info-text email-subject">Your Best Buy eReceipt</p>
+            <p class="info-text email-body-preview">Thank you forr shopping at Best Buy, here is...</p>
+          </div>
+        </div>
+
+        <div style="
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+        ">
+          <div class="profile-div">
+            <img
+              class="profile-image"
+              src="https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cq_auto:eco%2Cw_1200/MTk3MjI5OTczMDA0NjI0OTc5/cute-pet-names.png"
+            />
+          </div>
+          <div class="info-div">
+            <div style="
+              display: flex;
+              justify-content: space-between;  
+            ">
+              <p class="info-text email-title">Netflix</p>
+              <p class="info-text time-sent">9:00 AM</p>
+            </div>
+            <p class="info-text email-subject">Here's what's coming soon to Netflix</p>
+            <p class="info-text email-body-preview">Brand new movies and shows, old favorites...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="
+      margin: 30px;
+      padding: 20px;
+      display: flex;
+      width: 380px;
+    ">
+      <div class="profile-div">
+        <img
+          class="profile-image"
+          src="https://02dd5f64038d9e2d7aae-56d86e996af26366aec8b255ed6f7c7b.ssl.cf3.rackcdn.com/img-EKsE7eY6-large.jpg"
+        />
+      </div>
+      <div class="main-div" style="
+        display: flex;
+        flex-direction: column;
+        font-family: Roboto;
+        row-gap: 5px;
+      ">
+        <div style="display: flex; column-gap: 5px; align-items: center;">
+          <div class="username">supersimple.dev</div>
+          <div class="usertag">@SuperSimpleDev</div>
+        </div>
+        <div class="content-body">
+          What is backend web development? A complete overview. New video is up!
+        </div>
+        <div style="
+          padding-top: 10px;
+          padding-bottom: 10px;
+        ">
+          <div style="
+            display: flex;
+            border-radius: 15px;
+            border: 2px solid rgba(202, 177, 180, 0.925);  
+          ">
+            <div style="
+              border-top-left-radius: 12px;
+              border-bottom-left-radius: 12px;
+              background-color: rgba(202, 177, 180, 0.925);
+              width: 120px;
+            "></div>
+            <div style="
+              padding-top: 12px;
+              padding-bottom: 12px;
+              padding-right: 12px;
+              padding-left: 13px;
+              display: flex;
+              flex-direction: column;
+              row-gap: 3px;
+            ">
+              <div class="link-url">youtube.com</div>
+              <div class="video-title">Backend web development - a complete overview (2021)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

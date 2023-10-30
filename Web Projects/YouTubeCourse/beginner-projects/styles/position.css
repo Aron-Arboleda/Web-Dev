@@ -1,0 +1,10 @@
+.modal-title {
+  margin: 0;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.modal-body {
+  margin-top: 13px;
+  margin-bottom: 10px;
+}

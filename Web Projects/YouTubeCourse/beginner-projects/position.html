@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Positioning Practice</title>
+
+    <link rel="stylesheet" href="styles/position.css">
+  </head>
+  <body style="
+    height: 3000px;
+    padding-top: 60px;
+    padding-left: 80px;
+  ">
+    <div style="
+      background-color: black;
+      color: white;
+      position: fixed;
+      top: 0px;
+      height: 50px;
+      left: 0px;
+      right: 0px;
+      z-index: 1;
+    ">header</div>
+
+    <div style="
+      background-color: green;
+      color: white;
+      position: fixed;
+      top: 50px;
+      left: 0;
+      bottom: 0;
+      width: 72px;
+      ">
+      sidebar
+      <div style="
+        position: absolute;
+        background-color: red;
+        color: white;
+        top: 0px;
+        right: 0px;
+        
+        ">X
+      </div>
+    </div>
+
+    <div style="
+      position: fixed;
+      right: 100px;
+      bottom: 20px;
+      background-color: black;
+      color: white;
+    ">
+      bottom-right      
+    </div>
+
+    <div style="
+      position: fixed;
+      top: 50px;
+      bottom: 0;
+      right: 0;
+      width: 100px;
+      background-color: green;
+      color: white;
+    ">
+      right sidebar
+    </div>
+
+    <div style="
+      display: flex;
+      position: fixed;
+      align-items: center;
+      justify-content: center;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+    ">
+      <div style="
+        background-color: white;
+        width: 300px;
+        font-family: Arial;
+        padding: 15px;
+        border-radius: 6px;
+
+      ">
+        <p class="modal-title">Modal Title</p>
+        <p class="modal-body">This is a modal</p>
+        <button>Close</button>
+      </div>
+    </div>
+
+    <div style="
+      position: absolute;
+      background-color: red;
+      color: white;
+      top: 60px;
+      right: 10px;
+      ">absolute
+    </div>
+
+    <div style="
+      background-color: lightblue;  
+      height: 200px;
+      width: 200px;
+      position: static;
+    ">div 1</div>
+    <div style="
+      background-color: lightpink;  
+      height: 200px;
+      width: 200px;
+      position: relative;
+    ">
+      div 2
+      <div style="
+      position: absolute;
+      background-color: black;
+      color: white;
+      bottom: 10px;
+      right: 10px;
+      ">5:00
+      </div>
+    </div>
+  </body>
+</html>
