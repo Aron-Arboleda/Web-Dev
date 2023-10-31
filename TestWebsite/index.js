@@ -6,5 +6,3 @@ function square(nums) {
     return nums * nums;
 }
 
-let number = square(2);
-console.log(number);
