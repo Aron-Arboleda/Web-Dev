@@ -8,59 +8,74 @@
   </head>
   <body>
     <button onclick="
-      console.log(`Cart quantity: ${cartQuantity}`);
+      showQuantity();
       ">Show Quantity</button>
 
     <button onclick="
-      cartQuantity++;
-      console.log(`Cart quantity: ${cartQuantity}`);
+      add(1);
     ">Add to Cart</button>
 
     <button onclick="
-      cartQuantity--;
-      console.log(`Cart was reset.`);
-      console.log(`Cart quantity: ${cartQuantity}`);
+      minus(1);
     ">Remove from Cart</button>
 
     <button onclick="
-      cartQuantity += 2;
-      console.log(`Cart quantity: ${cartQuantity}`);
+      add(2);
     ">+2</button>
 
     <button onclick="
-      cartQuantity += 3;
-      console.log(`Cart quantity: ${cartQuantity}`);
+      add(3);
     ">+3</button>
 
     <button onclick="
-      cartQuantity += 4;
-      console.log(`Cart quantity: ${cartQuantity}`);
+      add(4);
     ">+4</button>
 
     <button onclick="
-      cartQuantity += 5;
-      console.log(`Cart quantity: ${cartQuantity}`);
+      add(5);
     ">+5</button>
 
     <button onclick="
-      cartQuantity = 0;
-      console.log(`Cart was reset.`);
-      console.log(`Cart quantity: ${cartQuantity}`);
+      resetCart();
     ">Reset Cart</button>
     
     <button onclick="
-      cartQuantity -= 2;
-      console.log(`Cart quantity: ${cartQuantity}`);
+      minus(2);
     ">-2</button>
 
     <button onclick="
-      cartQuantity -= 3;
-      console.log(`Cart quantity: ${cartQuantity}`);
+      minus(3);
     ">-3</button>
 
     <script>
-      let cartQuantity = 0
-
+      let cartQuantity = 0;
+      var maxQuantity = 10;
+      function showQuantity(){
+        console.log(`Cart quantity: ${cartQuantity}`);
+      }
+      function add(quantityToAdd){
+        if ((cartQuantity + quantityToAdd) > maxQuantity){
+          console.log(`-----------Can't add more items. Cart is Full.----------`);
+          showQuantity();
+        } else {
+          cartQuantity += quantityToAdd;
+          showQuantity();
+        }
+      }
+      function minus(quantityToMinus){
+        if ((cartQuantity - quantityToMinus) < 0){
+          console.log(`-----------No items in the cart. Cart is Empty.----------`);
+          showQuantity();
+        } else {
+          cartQuantity -= quantityToMinus;
+          showQuantity();
+        }
+      }
+      function resetCart(){
+        cartQuantity = 0;
+        console.log('Cart was reset.');
+        showQuantity();
+      }
     </script>
   </body>
 </html>
