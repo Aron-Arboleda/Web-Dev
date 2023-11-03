@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Functions</title>
+
+  </head>
+  <body>
+    <script>
+      function greet(name = 'there'){
+        console.log(`Hello ${name}!`);
+      }
+
+      //default value for 2nd param is 0.1
+      function calculateTax(cost, taxPercent = 0.1){
+        console.log(cost * taxPercent);
+      }
+
+      function convertToFahrenheit(celsius) {
+        const Fahrenheit = (celsius * 9 / 5) + 32;
+        return Fahrenheit;
+      }
+
+      function convertToCelsius(fahrenheit) {
+        const Celsius = (fahrenheit - 32) * 5 / 9;
+        return Celsius;
+      }
+
+      function convertTemperature(degrees, unit){
+        if (unit === 'C'){
+          return convertToFahrenheit(degrees) + 'F';
+        } else if (unit === 'F'){
+          return convertToCelsius(degrees) + 'C';
+        }
+      }
+
+      greet();
+      console.log(convertToFahrenheit(25));
+      console.log(convertToCelsius(86));
+
+      console.log(convertTemperature(25, 'C'));
+      console.log(convertTemperature(86, 'F'));
+
+    </script>
+  </body>
+</html>
