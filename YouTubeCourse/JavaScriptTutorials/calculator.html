@@ -74,6 +74,7 @@
       let result = eval(calculation);
       console.log(result);
       calculation = result;
+      localStorage.setItem('calculation', calculation);
     ">=</button>
 
     <button onclick="
@@ -87,9 +88,11 @@
     ">Clear</button>
 
     <script>
-      let calculation = '';
+      let calculation = localStorage.getItem('calculation') ? localStorage.getItem('calculation') : '';
+      console.log(calculation);
       function updateCalculation(char){
         calculation += char;
+        localStorage.setItem('calculation', calculation);
         console.log(calculation);
       }
       function resetCalculation(){
