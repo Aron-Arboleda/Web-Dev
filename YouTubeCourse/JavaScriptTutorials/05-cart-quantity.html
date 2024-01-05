@@ -47,34 +47,44 @@
       minus(3);
     ">-3</button>
 
+    <p class="js-text"></p>
+
     <script>
       let cartQuantity = 0;
       var maxQuantity = 10;
+
       function showQuantity(){
         console.log(`Cart quantity: ${cartQuantity}`);
+        updateText();
       }
       function add(quantityToAdd){
         if ((cartQuantity + quantityToAdd) > maxQuantity){
           console.log(`-----------Can't add more items. Cart is Full.----------`);
-          showQuantity();
         } else {
           cartQuantity += quantityToAdd;
-          showQuantity();
         }
+        showQuantity();
+        updateText();
       }
       function minus(quantityToMinus){
         if ((cartQuantity - quantityToMinus) < 0){
           console.log(`-----------No items in the cart. Cart is Empty.----------`);
-          showQuantity();
         } else {
           cartQuantity -= quantityToMinus;
-          showQuantity();
         }
+        showQuantity();
+        updateText();
       }
       function resetCart(){
         cartQuantity = 0;
         console.log('Cart was reset.');
         showQuantity();
+        updateText();
+      }
+
+      function updateText() {
+        const prompt = document.querySelector('.js-text');
+        prompt.innerText = `Cart Quantity: ${cartQuantity}`;
       }
     </script>
   </body>

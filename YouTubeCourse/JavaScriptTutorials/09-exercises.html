@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+
+  </head>
+  <body>
+    <!--Exercise: 9a-->
+    <button>9a</button>
+
+    <!--Exercise: 9b-->
+    <button class="js-9b">9b</button>
+
+    <!--Exercise: 9c-->
+    <br><br>
+    <button onclick="updateText('heads')">heads</button>
+    <button onclick="updateText('tails')">tails</button>
+    <p class="js-text"></p>
+
+    <!--Exercise: 9d, 9e-->
+    <br>
+    <input type="text" class="js-input" onkeydown="
+      keyHandler(event);
+    ">
+    <button onclick="displayName()">Submit</button>
+    <p class="js-name"></p>
+
+    <!--Exercise: 9g-->
+    <p>Amazon Shipping Calculator</p>
+    <input placeholder="Cost of order" class="js-cost-input" onkeydown="
+      handleCostKeydown(event);
+    ;">
+    <button onclick="
+      calculateTotal()
+    ">Calculate</button>
+    <p class="js-total-cost"></p>
+
+    <!--Exercise: 9h-->
+    <input type="text" onkeyup="
+      updateCopier();
+    " class="js-field">
+    <p class="js-textCopier"></p>
+
+    <script>
+      console.log(document.querySelector('button'));
+      document.querySelector('.js-9b').innerText = '9b done!'; 
+
+      function updateText(choice) {
+        document.querySelector('.js-text')
+          .innerText = `You chose: ${choice}`; 
+      }
+
+      function displayName() {
+        const textField = document.querySelector('.js-input');
+        document.querySelector('.js-name')
+          .innerText = `Your name is: ${textField.value}`; 
+      }
+      
+      function keyHandler(event) {
+        if (event.key === 'Enter') {
+          displayName();
+        }
+      }
+
+      function handleCostKeydown(event) {
+        if (event.key === 'Enter') {
+          calculateTotal();
+        }
+      }
+
+      function calculateTotal() {
+        const inputElement = document.querySelector('.js-cost-input');
+        let cost = Number(inputElement.value);
+
+        if (cost < 40) {
+          cost = (cost + 10).toFixed(2);
+        }
+
+        document.querySelector('.js-total-cost').innerHTML = `$${cost}`;
+      }
+
+      function updateCopier() {
+        const field = document.querySelector('.js-field')
+        document.querySelector('.js-textCopier').innerText = field.value;
+      }
+    </script>
+  </body>
+</html>

@@ -8,6 +8,8 @@
   <body>
     <p>Calculator</p>
 
+    <p class="js-text"></p>
+
     <button onclick="
       updateCalculation('1');
     ">1</button>
@@ -75,6 +77,7 @@
       console.log(result);
       calculation = result;
       localStorage.setItem('calculation', calculation);
+      updateText();
     ">=</button>
 
     <button onclick="
@@ -90,14 +93,23 @@
     <script>
       let calculation = localStorage.getItem('calculation') ? localStorage.getItem('calculation') : '';
       console.log(calculation);
+
+      updateText();
+
       function updateCalculation(char){
         calculation += char;
         localStorage.setItem('calculation', calculation);
         console.log(calculation);
+        updateText();
       }
       function resetCalculation(){
         calculation = '';
         console.log(calculation);
+        updateText();
+      }
+      function updateText() {
+        const prompt = document.querySelector('.js-text');
+        prompt.innerText = calculation;
       }
     </script>
   </body>
