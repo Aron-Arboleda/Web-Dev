@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>10-Exercises</title>
+    <style>
+      .add-to-cart-button {
+        background-color: rgb(249, 228, 120);
+        border: none;
+        padding: 5px 45px;
+        border-radius: 20px;
+        margin-right: 20px;
+      }
+      .request-now-button {
+        background-color: black;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 10px;
+        font-weight: bold;
+        padding: 8px 18px;
+        margin-right: 20px;
+      }
+      .schedule-button {
+        background-color: rgb(239, 238, 238);
+        border: none;
+        border-radius: 5px;
+        font-size: 10px;
+        font-weight: bold;
+        padding: 8px 18px;
+        margin-right: 20px;
+      }
+      .turn-on-off {
+        margin-top: 20px;
+        border: none;
+        border-radius: 3px;
+        padding: 6px 9px;
+        font-size: 10px;
+        cursor: pointer;
+      }
+      .is-toggled {
+        color: white;
+        background-color: black;
+      }
+      .js-error-message {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <!--Exercise: 10a-->
+    <button class="add-to-cart-button">Add to Cart</button>
+    <!--Exercise: 10b-->
+    <button class="request-now-button">Request now</button>
+    <button class="schedule-button">Schedule for later</button>
+
+    <!--Exercise: 10c-->
+    <button class="js-button">Test</button>
+
+    <!--Exercise: 10d, 10e, 10f-->
+    <br>
+    <button onclick="
+      toggle('gaming-button');
+    " class="gaming-button turn-on-off" >Gaming</button>
+    <button class="music-button turn-on-off" onclick="
+      toggle('music-button');
+    ">Music</button>
+    <button class="tech-button turn-on-off" onclick="
+      toggle('tech-button');
+    ">Tech</button>
+
+
+    <!--Exercise: 10h-->
+    <p>Amazon Shipping Calculator</p>
+    <input placeholder="Cost of order" class="js-cost-input cost-input" onkeydown="
+      handleCostKeydown(event);
+    ;">
+    <button onclick="
+      calculateTotal()
+    " class="calculate-button">Calculate</button>
+    <p class="js-total-cost"></p>
+    <p class="js-error-message"></p>
+
+
+
+    <script>
+      const testButton = document.querySelector('.js-button');
+      console.log(testButton.classList.contains('js-button'));
+
+
+      let lastTurnedOnButton = null;
+      function toggle(buttonName) {
+        const button = document.querySelector('.'+ buttonName);
+        if (button.classList.contains('is-toggled')){
+          button.classList.remove('is-toggled');
+        } else {
+          if (lastTurnedOnButton !== null){
+            lastTurnedOnButton.classList.remove('is-toggled');
+          }
+          button.classList.add('is-toggled');
+          lastTurnedOnButton = button;
+        }
+      }
+
+
+      //Exercise: 10h
+      function handleCostKeydown(event) {
+        if (event.key === 'Enter') {
+          calculateTotal();
+        }
+      }
+
+      function calculateTotal() {
+        const inputElement = document.querySelector('.js-cost-input');
+        let cost = Number(inputElement.value);
+
+        if (cost < 0){
+          document.querySelector('.js-total-cost').innerHTML = '';
+          document.querySelector('.js-error-message').innerText = `Error: cost cannot be less than $0`;
+        } else {
+          if (cost < 40) {
+            cost = (cost + 10).toFixed(2);
+          }
+          document.querySelector('.js-error-message').innerText = '';
+          document.querySelector('.js-total-cost').innerHTML = `$${cost}`;
+        }
+      }
+    </script>
+  </body>
+</html>
