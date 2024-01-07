@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercises: 11</title>
+  </head>
+  <body>
+    <script>
+      // Exercise: 11a
+      const nums = [10, 20, 30];
+      nums[2] = 99;
+
+      // Exercise: 11b
+      function getLastValue(array) {
+        return array[array.length - 1];
+      }
+
+      // Exercise: 11c
+      function arraySwap(array) {
+        const first = array[0];
+        const last = getLastValue(array);
+        array[0] = last;
+        array[array.length - 1] = first;
+        return array;
+      }
+
+      console.log(arraySwap([1, 20, 22, 24, 51]));
+
+      // Exercise: 11d
+      console.log("Counts up by two:");
+      for (let i = 0; i <= 10; i += 2) {
+        console.log(i);
+      }
+
+      // Exercise: 11e
+      console.log("Counts down from 5 to 0");
+      for (let i = 5; i >= 0; i--) {
+        console.log(i);
+      }
+
+      // Exercise: 11f
+      console.log("\n Using While Loops");
+      console.log("Counts up by two:");
+      let i = 0;
+      while (i <= 10) {
+        console.log(i);
+        i += 2;
+      }
+
+      console.log("Counts down from 5 to 0");
+      let j = 5;
+      while (j >= 0) {
+        console.log(j);
+        j--;
+      }
+
+      // Exercise: 11g
+      let arrayNums = [1, 2, 3];
+      let arrayNumsAdded1 = [];
+      for (let i = 0; i < arrayNums.length; i++) {
+        arrayNumsAdded1[i] = arrayNums[i] + 1;
+      }
+      console.log(arrayNumsAdded1);
+
+      // Exercise: 11h
+      function addOne(array) {
+        let arrayNumsAdded1 = [];
+        for (let i = 0; i < arrayNums.length; i++) {
+          arrayNumsAdded1[i] = arrayNums[i] + 1;
+        }
+        return arrayNumsAdded1;
+      }
+
+      console.log(addOne(arrayNums));
+
+      // Exercise: 11i
+      function addNum(array, num) {
+        let arrayNumsAdded1 = [];
+        for (let i = 0; i < arrayNums.length; i++) {
+          arrayNumsAdded1[i] = arrayNums[i] + num;
+        }
+        return arrayNumsAdded1;
+      }
+
+      console.log(addNum([1, 2, 3], 2));
+      console.log(addNum([1, 2, 3], 3));
+
+      // Exercise: 11j
+      function addArrays(array1, array2) {
+        let summedUpArray = [];
+        for (let i = 0; i < array1.length; i++) {
+          summedUpArray[i] = array1[i] + array2[i];
+        }
+        return summedUpArray;
+      }
+
+      console.log(addArrays([1, 1, 2], [1, 1, 3]));
+
+      // Exercise: 11k
+      function countPositive(nums) {
+        let count = 0;
+        for (let i = 0; i < nums.length; i++) {
+          if (nums[i] > 0) {
+            count++;
+          }
+        }
+        return count;
+      }
+
+      console.log(countPositive([1, -3, 5]));
+
+      // Exercise: 11l, 11m, 11n
+      function minMax(nums) {
+        let min;
+        let max;
+        if (nums.length > 0) {
+          min = nums[0];
+          max = nums[0];
+          for (let i = 0; i < nums.length; i++) {
+            if (nums[i] < min) {
+              min = nums[i];
+            } else if (nums[i] > max) {
+              max = nums[i];
+            }
+          }
+          return { min, max };
+        } else {
+          return { min: null, max: null };
+        }
+      }
+
+      console.log(minMax([1, -3, 5]));
+      console.log(minMax([-2, 3, -5, 7, 10]));
+      console.log(minMax([]));
+      console.log(minMax([3]));
+    </script>
+  </body>
+</html>
