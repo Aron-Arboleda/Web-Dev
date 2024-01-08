@@ -1,5 +1,5 @@
 
-
+/** 
 function rank(data) {
   let rankData = [];
   let mainSortedData = [];
@@ -52,6 +52,25 @@ function rank(data) {
 
 
 console.log(rank(['University', 'HighSchool', 'Elementary', 'Preparatory','Kindergarten', 'Kindergarten']));
+*/
+function removeEgg(foods) {
+  let eggCounter = 0;
+  const output = [];
+  for (let i = 0; i < foods.length; i++) {
+    if (foods[i] === "egg") {
+      eggCounter++;
+      if (eggCounter > 2){
+        output.push(foods[i]);
+      }
+      continue;
+    } else {
+      output.push(foods[i]);
+    }
+  }
+  return output;
+}
+
+console.log(removeEgg(["egg", "apple", "egg", "egg", "ham"]));
 
 // array = [60, 50, 50, 50, 50, 25, 15, 12, 12, 10, 10, 10,9,9,9, 7, 5, 5, 3, '']
 // array = [1,4,1,1,1,2]
