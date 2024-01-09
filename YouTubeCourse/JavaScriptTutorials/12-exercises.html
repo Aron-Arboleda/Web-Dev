@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advance Functions (12) Exercises:</title>
+  </head>
+  <body>
+    <!-- Exercise: 12c -->
+    <button onclick="
+      start();
+      " class="start-button">Start</button>
+    <br><br>
+    <!-- Exercise: 12e -->
+    <button onclick="
+      addToCart();
+      " class="add-to-cart-button">Add to cart</button>
+    <p class="added-info"></p>
+
+    <p>Document Title:</p>
+    <button onclick="
+      messages++;
+      if (messages === 1){
+        playChangingTitle();
+      }
+    ">Add</button>
+
+    <button onclick="
+    if (messages > 0){
+      messages--;
+      if (messages === 0){
+        document.title = 'App'
+        clearInterval(intervalId);
+      }
+    }
+  ">Remove</button>
+
+    <script>
+      // Exercise: 12a
+      const add = function () {
+        console.log(2 + 3);
+      }
+
+      // Exercise: 12b
+      function runTwice(fun) {
+        fun();
+        fun();
+      }
+
+      runTwice(add);
+
+      // Exercise: 12c, 12d
+      function start() {
+        const buttonElement = document.querySelector('.start-button');
+        buttonElement.innerText = 'Loading...';
+        setTimeout(function() {
+          buttonElement.innerText = 'Finished!';
+        },1000)
+      }
+
+      // Exercise: 12e, 12f
+      let clicked = false;
+      let timeoutId;
+      function addToCart() {
+        if (clicked == true){
+          clearTimeout(timeoutId);
+        }
+        const infoElement = document.querySelector('.added-info');
+        infoElement.innerHTML = 'Added';
+        clicked = true;
+        setTimeout(function() {
+          infoElement.innerHTML = '';
+        },2000)
+      }
+
+      // Exercise: 12g
+      document.title = 'App';
+
+      let messages = 2;
+      let intervalId;
+      function playChangingTitle() {
+        let changingTitle = false;
+        intervalId = setInterval(function () {
+          document.title = changingTitle ? 'App' : `(${messages}) New messages`;
+          changingTitle = !changingTitle;
+        }, 1000);
+      }
+      
+      playChangingTitle();
+
+
+    </script>
+  </body>
+</html>
