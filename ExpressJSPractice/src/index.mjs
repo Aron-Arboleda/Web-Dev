@@ -2,7 +2,26 @@ import express from "express"; // exporting the entire express module from the p
 
 const app = express(); //express is a function so we it needs to be called to make an application
 
-app.use(express.json())
+app.use(express.json());
+
+const loggingMiddleware = (request, response, next) => {
+    console.log(`${request.method} - ${request.url}`);
+    next(); //function that you call to continue reading to the next middleware
+};
+
+const resolveIndexByUserId = (request, response, next) => {
+    const { params: {id} } = request;
+
+    const parsedId = parseInt(id);
+    if (isNaN(parsedId)) return response.sendStatus(400);
+
+    const findUserIndex = mockUsers.findIndex(user => user.id === parsedId);
+    if (findUserIndex === -1) return response.sendStatus(404);
+    request.findUserIndex = findUserIndex;
+    next();
+};
+
+app.use(loggingMiddleware); //implemented from here until it reaches the bottom
 
 const PORT = process.env.PORT || 3000; //setting the port to 3000 if it's not set in the environment variable
 const mockUsers = [
@@ -15,7 +34,7 @@ const mockUsers = [
     {id: 7, username: "kemj", displayName: "Kemj"}, 
     {id: 8, username: "psalm", displayName: "Psalm"},
     {id: 9, username: "mark", displayName: "Mark"}
-]
+];
 
 app.post("/api/users", (request, response) => {
     const { body } = request;
@@ -24,64 +43,40 @@ app.post("/api/users", (request, response) => {
     };
     mockUsers.push(newUser);
     return response.status(201).send(newUser);
-})
+});
 
-
-
-app.get("/", (request, response) => {
+app.get("/", loggingMiddleware, (request, response) => {
 	response.status(201).send({msg: "Hello World!"});
-})
+});
 
 app.get("/api/users", (request, response) => {
     const {query: {filter, value}} = request;
     if (filter && value) return response.send(mockUsers.filter(user => user[filter].includes(value)));
     return response.send(mockUsers);
-})
+});
 
-app.get("/api/users/:id", (request, response) => {
-    const parsedId = parseInt(request.params.id);
-    if (isNaN(parsedId)) return response.status(400).send({msg: "Bad Request"});
+app.get("/api/users/:id", resolveIndexByUserId, (request, response) => {
+    const { findUserIndex } = request;
+    return response.send(mockUsers[findUserIndex]);
+});
 
-    const findUser = mockUsers.find(user => user.id === parsedId);
-    if (!findUser) return response.sendStatus(404);
-    return response.send(findUser);
-})
-
-app.put("/api/users/:id", (request, response) => {
-    const { body, params: {id} } = request;
-
-    const parsedId = parseInt(id);
-    if (isNaN(parsedId)) return response.sendStatus(400);
-
-    const findUserIndex = mockUsers.findIndex(user => user.id === parsedId);
-    if (findUserIndex === -1) return response.sendStatus(404);
-    mockUsers[findUserIndex] = { id: parsedId, ...body}
+app.put("/api/users/:id", resolveIndexByUserId, (request, response) => {
+    const { body, findUserIndex } = request;
+    mockUsers[findUserIndex] = { id: mockUsers[findUserIndex].id, ...body};
     return response.status(200).send(mockUsers);
-})
+});
 
-app.patch("/api/users/:id", (request, response) => {
-    const { body, params: {id} } = request;
-
-    const parsedId = parseInt(id);
-    if (isNaN(parsedId)) return response.sendStatus(400);
-
-    const findUserIndex = mockUsers.findIndex(user => user.id === parsedId);
-    if (findUserIndex === -1) return response.sendStatus(404);
-    mockUsers[findUserIndex] = { ...mockUsers[findUserIndex], ...body}
+app.patch("/api/users/:id", resolveIndexByUserId, (request, response) => {
+    const { body, findUserIndex } = request;
+    mockUsers[findUserIndex] = { ...mockUsers[findUserIndex], ...body};
     return response.status(200).send(mockUsers);
-})
+});
 
-app.delete("/api/users/:id", (request, response) => {
-    const { params: {id} } = request;
-
-    const parsedId = parseInt(id);
-    if (isNaN(parsedId)) return response.sendStatus(400);
-
-    const findUserIndex = mockUsers.findIndex(user => user.id === parsedId);
-    if (findUserIndex === -1) return response.sendStatus(404);
-    mockUsers.splice(findUserIndex, 1)
+app.delete("/api/users/:id", resolveIndexByUserId, (request, response) => {
+    const { findUserIndex } = request;
+    mockUsers.splice(findUserIndex, 1);
     return response.status(200).send(mockUsers);
-})
+});
 
 
 app.get("/api/products", (request, response) => {
@@ -90,8 +85,8 @@ app.get("/api/products", (request, response) => {
         {id: 124, name: "Pig Feet", price: 800.99},
         {id: 126, name: "Puso ni Lester", price: 1005.99}
     ]);
-})
+});
 
 app.listen(PORT, () => {
-    console.log(`Server started on port ${PORT}`)
+    console.log(`Server started on port ${PORT}`);
 }); //allows the server to listen to a port for incoming requests, this actually what starts up the express server on a specific port to listen for HTTP requests
