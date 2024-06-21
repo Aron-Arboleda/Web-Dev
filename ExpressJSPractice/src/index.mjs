@@ -1,4 +1,7 @@
 import express from "express"; // exporting the entire express module from the package
+import { query, validationResult, matchedData, checkSchema } from "express-validator";
+
+import { createUserValidationSchema } from "./utils/validationSchemas.mjs";
 
 const app = express(); //express is a function so we it needs to be called to make an application
 
@@ -36,10 +39,13 @@ const mockUsers = [
     {id: 9, username: "mark", displayName: "Mark"}
 ];
 
-app.post("/api/users", (request, response) => {
-    const { body } = request;
+app.post("/api/users", checkSchema(createUserValidationSchema), (request, response) => {
+    const result = validationResult(request);
+    if (!result.isEmpty()) return response.status(400).send({ errors: result.array()});
+
+    const data = matchedData(request);
     const newUser = {
-        id: mockUsers[mockUsers.length - 1].id + 1, ...body
+        id: mockUsers[mockUsers.length - 1].id + 1, ...data
     };
     mockUsers.push(newUser);
     return response.status(201).send(newUser);
@@ -49,7 +55,13 @@ app.get("/", loggingMiddleware, (request, response) => {
 	response.status(201).send({msg: "Hello World!"});
 });
 
-app.get("/api/users", (request, response) => {
+app.get("/api/users", query('filter')
+    .isString()
+    .notEmpty().withMessage('Must not be empty')
+    .isLength({min: 3, max: 10}).withMessage('Must be atleast 3-10 characters')
+    , (request, response) => {
+    const result = validationResult(request);
+    console.log(result);
     const {query: {filter, value}} = request;
     if (filter && value) return response.send(mockUsers.filter(user => user[filter].includes(value)));
     return response.send(mockUsers);
