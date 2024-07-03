@@ -3,6 +3,8 @@ import routes from "./routes/index.mjs";
 import cookieParser from "cookie-parser";
 import session from "express-session";
 import { mockUsers } from "./utils/constants.mjs";
+import passport from "passport";
+import "./strategies/local-strategy.mjs";
 
 const app = express(); //express is a function so we it needs to be called to make an application
 
@@ -18,9 +20,11 @@ app.use(session(
         }
     }
 ));
-app.use(routes);
 
-const loggedInUsers = [];
+app.use(passport.initialize()); // to initialize the passport middleware
+app.use(passport.session()); // attaches a dynamic user property to the request object called "user" to be used as a reference who the user is.
+
+app.use(routes);
 
 const PORT = process.env.PORT || 3000; //setting the port to 3000 if it's not set in the environment variable
 
@@ -36,6 +40,18 @@ app.get("/", (request, response) => {
 	response.status(201).send({msg: "Hello World!"});
 });
 
+app.post("/api/auth", passport.authenticate("local"), (request, response) => {
+    response.sendStatus(200);
+});
+
+app.post("/api/auth/logout", (request, response) => {
+    if (!request.user) return response.sendStatus(401);
+    request.logout((err) => {
+        if (err) return response.sendStatus(401);
+        response.sendStatus(200);
+    });
+});
+/** 
 app.post("/api/auth", (request, response) => {
     const {body: {username, password}} = request;
     const findUser = mockUsers.find(user => user.username === username);
@@ -46,24 +62,33 @@ app.post("/api/auth", (request, response) => {
         return response.status(401).send({msg: "Invalid password"});
     }
     request.session.user = findUser;
-    loggedInUsers.push(findUser);
     return response.status(200).send(findUser);
-});
+});*/
 
 app.get("/api/auth/status", (request, response) => {
-    request.sessionStore.get(request.sessionID, (err, session) => {
-        console.log(session);
-    });
-    return request.session.user ? response.status(200).send({msg: "Logged in", user: request.session.user}) : response.status(401).send({msg: "Not Authenticated"});
+    console.log("\nInside /api/auth/status");
+    console.log(request.user);
+    console.log(request.session);
+    //request.sessionStore.get(request.sessionID, (err, session) => {
+    //    console.log(session);
+    //});
+    //return request.session.user ? response.status(200).send({msg: "Logged in", user: request.session.user}) : response.status(401).send({msg: "Not Authenticated"});
+    return request.user ? response.send(request.user) : response.sendStatus(401);
 });
 
-app.get("/api/auth/loggedInUsers", (request, response) => {
-    if (loggedInUsers.length === 0) {
-        return response.status(200).send({msg: "No users logged in"});
+app.post("/api/cart", (request, response) => {
+    if (!request.session.user) return response.sendStatus(401);
+    const { body: item } = request;
+    const { cart } = request.session;
+    if (cart) {
+        cart.push(item);
+    } else {
+        request.session.cart = [item];
     }
-    for (let i = 0; i < loggedInUsers.length; i++) {
-        console.log("\n" + (i + 1) + ". \n");
-        console.log(loggedInUsers[i]);
-    }
-    return response.status(200).send(loggedInUsers);
+    return response.status(201).send(item);
+});
+
+app.get("/api/cart", (request, response) => {
+    if (!request.session.user) return response.sendStatus(401);
+    return response.status(201).send(request.session.cart ?? []);
 });
