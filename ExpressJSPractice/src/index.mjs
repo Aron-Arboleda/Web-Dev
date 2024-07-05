@@ -4,9 +4,16 @@ import cookieParser from "cookie-parser";
 import session from "express-session";
 import { mockUsers } from "./utils/constants.mjs";
 import passport from "passport";
+import mongoose from "mongoose";
 import "./strategies/local-strategy.mjs";
+import { User } from "./mongoose/schemas/user.mjs";
 
 const app = express(); //express is a function so we it needs to be called to make an application
+
+mongoose
+    .connect("mongodb://localhost/express_tutorial")
+    .then(() => console.log("Connected to the database"))
+    .catch((err) => console.log(`Error ${err}`));
 
 app.use(express.json());
 app.use(cookieParser("helloworld"));
@@ -32,12 +39,21 @@ app.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`);
 }); //allows the server to listen to a port for incoming requests, this actually what starts up the express server on a specific port to listen for HTTP requests
 
-app.get("/", (request, response) => {
-    console.log(request.session);
-    console.log(request.session.id);
-    request.session.visited = true; //modifying the session to save on the browser
+app.get("/", async (request, response) => {
+    //console.log(request.session);
+    //console.log(request.session.id);
+    //request.session.visited = true; //modifying the session to save on the browser
     //response.cookie("hello", "world", {maxAge: 60000 * 60 * 2, signed: true});
-	response.status(201).send({msg: "Hello World!"});
+	try {
+        for (const user of mockUsers) {
+            const newUser = new User(user);
+            await newUser.save();
+        }
+        response.status(201).send({msg: "Data transdered to database!"});
+    } catch (err) {
+        console.log(`Error: ${err}`);
+        return response.sendStatus(401);
+    }
 });
 
 app.post("/api/auth", passport.authenticate("local"), (request, response) => {
@@ -92,3 +108,4 @@ app.get("/api/cart", (request, response) => {
     if (!request.session.user) return response.sendStatus(401);
     return response.status(201).send(request.session.cart ?? []);
 });
+
