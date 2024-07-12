@@ -16,16 +16,16 @@ router.get("/api/users", query('filter')
         console.log("\n\n/api/users");
         console.log(request.session);
         console.log(request.session.id);
-        console.log(request.sessionStore.get(request.session.id, (err, sessionData) => {
+        request.sessionStore.get(request.session.id, (err, sessionData) => {
             if (err) {
                 console.log(err);
                 throw err;
             }
-            console.log(sessionData);
-        }));
+            console.log("Session Data: " + sessionData);
+        });
         
         const result = validationResult(request);
-        console.log(result);
+        //console.log(result);
         const {query: {filter, value}} = request;
     if (filter && value) return response.send(mockUsers.filter(user => user[filter].includes(value)));
     return response.send(mockUsers);

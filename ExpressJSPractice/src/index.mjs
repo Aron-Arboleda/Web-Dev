@@ -5,8 +5,10 @@ import session from "express-session";
 import { mockUsers } from "./utils/constants.mjs";
 import passport from "passport";
 import mongoose from "mongoose";
+import MongoStore from "connect-mongo";
 import "./strategies/local-strategy.mjs";
 import { User } from "./mongoose/schemas/user.mjs";
+import { hashPassword } from "./utils/helpers.mjs";
 
 const app = express(); //express is a function so we it needs to be called to make an application
 
@@ -24,7 +26,10 @@ app.use(session(
         resave: false, //true means forcing a session to be saved at the session store even if its not modified at all
         cookie: { 
             maxAge: 60000 * 60 //to set the expiration time of the cookie
-        }
+        },
+        store: MongoStore.create({
+            client: mongoose.connection.getClient()
+        })
     }
 ));
 
@@ -47,6 +52,7 @@ app.get("/", async (request, response) => {
 	try {
         for (const user of mockUsers) {
             const newUser = new User(user);
+            newUser.password = hashPassword(newUser.password);
             await newUser.save();
         }
         response.status(201).send({msg: "Data transdered to database!"});
@@ -85,6 +91,7 @@ app.get("/api/auth/status", (request, response) => {
     console.log("\nInside /api/auth/status");
     console.log(request.user);
     console.log(request.session);
+    console.log(request.sessionID);
     //request.sessionStore.get(request.sessionID, (err, session) => {
     //    console.log(session);
     //});
