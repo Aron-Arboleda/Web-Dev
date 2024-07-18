@@ -6,7 +6,8 @@ import { mockUsers } from "./utils/constants.mjs";
 import passport from "passport";
 import mongoose from "mongoose";
 import MongoStore from "connect-mongo";
-import "./strategies/local-strategy.mjs";
+//import "./strategies/local-strategy.mjs";
+import "./strategies/discord-strategy.mjs";
 import { User } from "./mongoose/schemas/user.mjs";
 import { hashPassword } from "./utils/helpers.mjs";
 
@@ -99,6 +100,14 @@ app.get("/api/auth/status", (request, response) => {
     return request.user ? response.send(request.user) : response.sendStatus(401);
 });
 
+app.get("/api/auth/discord", passport.authenticate('discord'));
+
+app.get("/api/auth/discord/redirect", passport.authenticate('discord'), 
+    (request, response) => {
+        response.sendStatus(200);
+    }
+);
+
 app.post("/api/cart", (request, response) => {
     if (!request.session.user) return response.sendStatus(401);
     const { body: item } = request;
@@ -116,3 +125,6 @@ app.get("/api/cart", (request, response) => {
     return response.status(201).send(request.session.cart ?? []);
 });
 
+// CLIENT ID: 1263462049200214047
+// CLIENT SECRET: N9m5jSPXtOvcVlf9Daq9Kfawh0DZPCY7
+// redirect link: http://localhost:3000/api/auth/discord/redirect
