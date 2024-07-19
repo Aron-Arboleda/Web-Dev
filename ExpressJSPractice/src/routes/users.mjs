@@ -5,6 +5,7 @@ import { createUserValidationSchema } from "../utils/validationSchemas.mjs";
 import { resolveIndexByUserId } from "../utils/middlewares.mjs";
 import { User } from "../mongoose/schemas/user.mjs";
 import { hashPassword } from "../utils/helpers.mjs";
+import { getUserByIdHandler } from "../handlers/users.mjs";
 
 const router = Router();
 
@@ -31,10 +32,7 @@ router.get("/api/users", query('filter')
     return response.send(mockUsers);
 });
 
-router.get("/api/users/:id", resolveIndexByUserId, (request, response) => {
-    const { findUserIndex } = request;
-    return response.send(mockUsers[findUserIndex]);
-});
+router.get("/api/users/:id", resolveIndexByUserId, getUserByIdHandler);
 
 router.put("/api/users/:id", resolveIndexByUserId, (request, response) => {
     const { body, findUserIndex } = request;
