@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: #050401;
+        text-align: center;
+        justify-content: center;
+        vertical-align: middle;
+        margin: 30px;
+        color: white;
+        font-family: "Segoe UI";
+      }
+      p, h1 {
+        margin: 0;
+        padding: 0;
+      }
+      #parentDiv {
+        display: inline-block;
+        width: 60%;
+        height: 650px;
+        border-radius: 10px;
+      }
+      #playlistDiv {
+        display: flex;
+        flex-direction: column;
+        background-color: #5E2B2B;
+        height: 650px;
+        border-radius: inherit;
+      }
+      
+      #playlistHeaderContainer{
+        border-radius: inherit;
+        background-color: #5E2B2B;
+        height: 26%;
+        display: grid;
+        grid-template-columns: 20% 80%;
+        padding: 20px;
+      }
+      #playlistTableContainer{
+        border-bottom-left-radius: inherit;
+        border-bottom-right-radius: inherit;
+        background-color: #1c1818d3;
+        height: 72%;
+        padding: 20px;
+      }
+      #displayImageContainer {
+        width: 100%;
+      }
+      #displayImageContainer img{
+        width: 100%;
+        border-radius: 10px;
+      }
+      #infoContainer {
+        display: grid;
+        grid-template-rows: 20% 60% 20%;
+        text-align: left;
+        padding: 20px;
+      }
+      #infoContainer h1 {
+        font-size: 50px;
+      }
+      table, th, td {
+        border-collapse: collapse;
+        padding: 7px;
+      }
+      table {
+        width: 100%;
+      }
+      th {
+        height: 30px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.164);
+        margin-bottom: 20px;
+      }
+      td:first-child, th:first-child {
+        text-align: center;
+      }
+      td:nth-child(2), th:nth-child(2) {
+        width: 40%;
+        text-align: left;
+      }
+      td:nth-child(3), th:nth-child(3) {
+        text-align: right;
+      }
+      td:nth-child(4), th:nth-child(4) {
+        width: 30%;
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="parentDiv">
+      <div id="playlistDiv">
+        <div id="playlistHeaderContainer">
+          <div id="displayImageContainer">
+            <img src="albumCover.jpg" alt="">
+          </div>
+          <div id="infoContainer">
+            <p>Album</p>
+            <h1>Harry's House</h1>
+            <p><b>Harry Styles</b> • 2022 • 13 songs, 41 min 59 sec</p>
+          </div>
+        </div>
+        <div id="playlistTableContainer">
+          <table id="songsTable">
+            <tr>
+              <th>#</th>
+              <th>Title</th>
+              <th>Plays</th>
+              <th>🕒</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Music For A Sushi Restaurant</td>
+              <td>421,703,868</td>
+              <td>3:13</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Late Night Talking</td>
+              <td>999,243,583</td>
+              <td>2:57</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Grapejuice</td>
+              <td>999,243,583</td>
+              <td>2:57</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>As It Was</td>
+              <td>3,529,319,425</td>
+              <td>2:47</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Daylight</td>
+              <td>392,408,186</td>
+              <td>2:44</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Little Freak</td>
+              <td>277,773,443</td>
+              <td>3:22</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Matilda</td>
+              <td>532,379,540</td>
+              <td>4:05</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>Cinema</td>
+              <td>235,406,500</td>
+              <td>4:03</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>Daydreaming</td>
+              <td>241,067,102</td>
+              <td>3:07</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>Keep Driving</td>
+              <td>347,539,428</td>
+              <td>2:20</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
