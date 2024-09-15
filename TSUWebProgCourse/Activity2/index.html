@@ -12,24 +12,36 @@
         color: white;
         font-family: "Segoe UI";
       }
-      p, h1 {
+      p, h1, h2 {
         margin: 0;
         padding: 0;
+        text-align: left;
       }
       #parentDiv {
         display: inline-block;
-        width: 60%;
-        height: 650px;
+        text-align: center;
+        width: 1300px;
+        height: auto;
         border-radius: 10px;
+        margin-bottom: 50px;
       }
-      #playlistDiv {
+      .divTitle {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      /* For Music Playlist */
+      #musicPlaylistDiv {
         display: flex;
         flex-direction: column;
         background-color: #5E2B2B;
-        height: 650px;
+        height: 600px;
         border-radius: inherit;
+        margin-bottom: 50px;
+        width: 880px;
+        height: 650px;
+        display: inline-block;
       }
-      
       #playlistHeaderContainer{
         border-radius: inherit;
         background-color: #5E2B2B;
@@ -42,8 +54,8 @@
         border-bottom-left-radius: inherit;
         border-bottom-right-radius: inherit;
         background-color: #1c1818d3;
-        height: 72%;
-        padding: 20px;
+        height: 422px;
+        padding: 10px 20px;
       }
       #displayImageContainer {
         width: 100%;
@@ -61,37 +73,88 @@
       #infoContainer h1 {
         font-size: 50px;
       }
-      table, th, td {
+      #songsTable table, #songsTable th, #songsTable td {
         border-collapse: collapse;
         padding: 7px;
       }
       table {
         width: 100%;
       }
-      th {
+      #songsTable th {
         height: 30px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.164);
         margin-bottom: 20px;
       }
-      td:first-child, th:first-child {
+      #songsTable td:first-child, th:first-child {
         text-align: center;
       }
-      td:nth-child(2), th:nth-child(2) {
+      #songsTable td:nth-child(2), th:nth-child(2) {
         width: 40%;
         text-align: left;
       }
-      td:nth-child(3), th:nth-child(3) {
+      #songsTable td:nth-child(3), th:nth-child(3) {
         text-align: right;
       }
-      td:nth-child(4), th:nth-child(4) {
+      #songsTable td:nth-child(4), th:nth-child(4) {
         width: 30%;
         text-align: right;
       }
+
+      /* For Video Playlist */
+      #videoPlaylistDiv {
+        display: grid;
+        grid-template-columns: 65% 32%;
+        column-gap: 20px;
+        background-color: #1c1818d3;
+        border-radius: inherit;
+        padding: 20px;
+      }
+      #showingVideo {
+        width: 100%;
+        border-radius: 10px;
+      }
+      #videoTitle {
+        margin-top: 10px;
+      }
+      .thumbnail {
+        width: 100%;
+        border-radius: 5px;
+        margin-top: 10px;
+      } 
+      #videoQueueTable td:nth-child(1), #videoQueueTable th:nth-child(1) {
+        width: 35%;
+      }
+      #videoQueueTable td:nth-child(2), #videoQueueTable th:nth-child(2) {
+        width: 65%;
+        text-align: left;
+        font-size: 13px;
+        padding-left: 10px;
+      }
+      .queueVideoTitle {
+        font-size: 15px;
+        font-weight: bold;
+      }
+      .video {
+        height: 100px;
+        margin-bottom: 20px;
+      }
+      #videoQueueTable{
+        row-gap: 20px;
+      }
+      .videoDescription {
+        margin-top: 10px;
+      }
+
+      .credits {
+        margin-left: 80px;
+      }
+
     </style>
   </head>
   <body>
     <div id="parentDiv">
-      <div id="playlistDiv">
+      <h1 class="divTitle">Music Playlist</h1>
+      <div id="musicPlaylistDiv">
         <div id="playlistHeaderContainer">
           <div id="displayImageContainer">
             <img src="albumCover.jpg" alt="">
@@ -173,6 +236,122 @@
           </table>
         </div>
       </div>
+      <h1 class="divTitle">Video Playlist</h1>
+      <div id="videoPlaylistDiv">
+        <div>
+          <video id="showingVideo" controls>
+            <source src="videoFile.mp4" type="video/mp4">
+            This browser doesn't support video tag
+          </video>
+          <h2 id="videoTitle">Chappell Roan - Good Luck, Babe! (Official Lyric Video)</h2>
+          <p class="videoDescription">32,882,728 views  Apr 5, 2024  #ChappellRoan #GoodLuckBabe</p>
+          <p class="videoDescription"><b>Chappell Roan</b></p>
+        </div>
+        <div>
+          <table id="videoQueueTable">
+            <tr class="video">
+              <td><img class="thumbnail" src="image1.png" alt=""></td>
+              <td>
+                <table>
+                  <tr>
+                    <td class="queueVideoTitle">lofi hip hop radio 📚 beats to relax/study to</td>
+                  </tr>
+                  <tr>
+                    <td>Lofi Girl</td>
+                  </tr>
+                  <tr>
+                    <td>40M views • 1 month ago</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr class="video">
+              <td><img class="thumbnail" src="image2.png" alt=""></td>
+              <td>
+                <table>
+                  <tr>
+                    <td class="queueVideoTitle">Sabrina Carpenter - Good Luck, Babe! (Chappell Roan cover)</td>
+                  </tr>
+                  <tr>
+                    <td>BBCRadio1VEVO</td>
+                  </tr>
+                  <tr>
+                    <td>21M views • 2 months ago</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr class="video">
+              <td><img class="thumbnail" src="image3.png" alt=""></td>
+              <td>
+                <table>
+                  <tr>
+                    <td class="queueVideoTitle">Genevieve Stokes - Habits [Official Visualizer]</td>
+                  </tr>
+                  <tr>
+                    <td>Genevieve Stokes</td>
+                  </tr>
+                  <tr>
+                    <td>2.2M views • 2 years ago</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr class="video">
+              <td><img class="thumbnail" src="image4.png" alt=""></td>
+              <td>
+                <table>
+                  <tr>
+                    <td class="queueVideoTitle">NewJeans (뉴진스) 'Supernatural' Official MV (Part.1)</td>
+                  </tr>
+                  <tr>
+                    <td>HYBE LABELS</td>
+                  </tr>
+                  <tr>
+                    <td>30M views • 2 months ago</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr class="video">
+              <td><img class="thumbnail" src="image5.png" alt=""></td>
+              <td>
+                <table>
+                  <tr>
+                    <td class="queueVideoTitle">Olivia Dean - Be My Own Boyfriend (Unofficial Video)</td>
+                  </tr>
+                  <tr>
+                    <td>Olivia Dean</td>
+                  </tr>
+                  <tr>
+                    <td>881K views • 3 years ago</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr class="video">
+              <td><img class="thumbnail" src="image6.png" alt=""></td>
+              <td>
+                <table>
+                  <tr>
+                    <td class="queueVideoTitle">Bruno Major - The Most Beautiful Thing (Lyric & Chord Video)</td>
+                  </tr>
+                  <tr>
+                    <td>Bruno Major</td>
+                  </tr>
+                  <tr>
+                    <td>13M views • 4 years ago</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </div>
+        
+      </div>
     </div>
+    <p class="credits">Name: Aron Rez D. Arboleda</p>
+    <p class="credits">Section: BSCS-3C</p>
+    <p class="credits">Design inspiration: <a href="spotify.com">spotify.com</a> and <a href="youtube.com">youtube.com</a></p>
   </body>
 </html>
