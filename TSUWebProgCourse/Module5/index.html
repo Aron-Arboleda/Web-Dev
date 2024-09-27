@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animation</title>
+
+    <style>
+      a.smooth{
+        display: block;
+        text-decoration:none;
+        text-align: center;
+        padding: 1em 2em;
+        width: 10em;
+        border-radius: 1.5em;
+        color: #fff;
+        background-color: mediumblue;
+        opacity: 1;
+        transition-property: opacity;
+        transition-duration: 0.5s;
+        transition-timing-function: ease-out;
+        transition-delay: 1s;
+      }
+
+      a.smooth:hover, a.smooth:focus {
+        background-color: red;
+      }
+      a.smooth:active{ /*activates when pressing and holding the element*/
+        opacity:0;
+      }
+
+      #redSquare {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        transition-property: width;
+        transition-duration:0.3s;
+        transition-timing-function:ease-in-out;
+      }
+
+      #redSquare:hover, #redSquare:focus {
+        width: 700px;
+      }
+
+      #goodluckbabe {
+        margin-left: 300px;
+        width:300px;
+        transform: skewX(0deg);
+        transition-property: transform;
+        transition-timing-function:ease-in-out;
+        transition-duration:0.3s;
+      }
+
+      #goodluckbabe:hover, #redSquare:focus {
+        transform: skew(5deg, 100deg);
+      }
+
+      img{
+        width:300px;
+        height:400px;
+        transform:translateX(50px);
+        transform:translateY(25px);
+        transform:translate(50px,25px);
+      }
+      img{
+        transform:scaleX(1.5);
+        transform:scaleY(2);
+        transform:scale(2,.5);
+      }
+
+      img{
+        transform:skewX(15deg);
+      }
+      img{
+        transform:skewY(30deg);
+      }
+      img{
+        transform:skew(15deg,30deg);
+      }
+
+      /* The animation code */
+      @keyframes example {
+        from {background-color: red;}
+        to {background-color: yellow;}
+      }
+      /* The element to apply the animation to */
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        animation-name: example;
+        animation-duration: 4s;
+      }
+
+
+      /* The animation code */
+      @keyframes example {
+        0% {background-color: red;}
+        25% {background-color: yellow;}
+        50% {background-color: blue;}
+        100% {background-color: green;}
+      }
+      /* The element to apply the animation to */
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        animation-name: example;
+        animation-duration: 4s;
+      }
+
+      /* The animation code */
+      @keyframes example {
+        0% {background-color:red; left:0px; top:0px;}
+        25% {background-color:yellow; left:200px; top:0px;}
+        50% {background-color:blue; left:200px; top:200px;}
+        75% {background-color:green; left:0px; top:200px;}
+        100% {background-color:red; left:0px; top:0px;}
+      }
+      /* The element to apply the animation to */
+      div {
+        width: 100px;
+        height: 100px;
+        position: relative;
+        background-color: red;
+        animation-name: example;
+        animation-duration: 4s;
+      }
+
+      div {
+        width: 100px;
+        height: 100px;
+        position: relative;
+        background-color: red;
+        animation-name: example;
+        animation-duration: 4s;
+        animation-delay: 2s;
+      }
+
+      div {
+        width: 100px;
+        height: 100px;
+        position: relative;
+        background-color: red;
+        animation-name: example;
+        animation-duration: 4s;
+        animation-iteration-count: 3;
+      }
+
+      div {
+        width: 100px;
+        height: 100px;
+        position: relative;
+        background-color: red;
+        animation-name: example;
+        animation-duration: 4s;
+        animation-direction: reverse;
+      }
+
+      #div1 {animation-timing-function: linear;}
+      #div2 {animation-timing-function: ease;}
+      #div3 {animation-timing-function: ease-in;}
+      #div4 {animation-timing-function: ease-out;}
+      #div5 {animation-timing-function: ease-in-out;}
+
+
+
+    </style>
+  </head>
+  <body>
+    <audio src = “foo.wav” controls autoplay>
+      Your browser does not support the audio element.
+    </audio>
+
+    <audio src = “foo.wav” controls autoplay></audio>
+      <source src="/html5/audio.ogg" type="audio/ogg">
+      <source src="/html5/audio.wav" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
+    
+    <a href="" class="smooth">awesomesauce</a>
+
+    <h1>alsdnlksankdl</h1>
+    <div id="redSquare"></div>
+    <img id="goodluckbabe" src="image2.png" alt="">
+
+    <div id="anim"></div>
+
+
+  </body>
+</html>

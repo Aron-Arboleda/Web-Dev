@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animation Practice</title>
+
+    <style>
+      body{
+        background-color:#66D0FF;
+      }
+      #sun {
+        background-color: rgba(255, 111, 0, 0.776);
+        width: 200px;
+        height: 200px;
+        text-align: center;
+        border-radius: 50%;
+        transform: translate(800px, 350px);
+        transition: all 8s;
+      }
+      #sun:hover {
+        background-color: rgb(255, 255, 3);
+        transform: translate(800px, -250px);
+      }
+
+
+      .mountain {
+        background-color: rgb(127, 58, 2);
+        width: 500px;
+        height: 500px;
+        position: absolute;
+        bottom: -250px;
+      }
+
+      .cloud {
+        position: absolute;
+        transform: translateX(-500px);
+      }
+      .cloud-large{
+        width: 200px;
+      }
+      .cloud-small{ 
+        width: 150px;
+      }
+      .cloud-from-right {
+        transform: scaleX(-1);
+        transform: translateX(1500px);
+      }
+
+
+      /* Animations */
+      @keyframes slideInLeft {
+        from {
+          transform: translateX(-200px);
+        }
+        to {
+          transform: translateX(1500px);
+        }
+      }  
+      
+      @keyframes slideInRight {
+        from {
+          transform: translateX(1500px);
+        }
+        to {
+          transform: translateX(-200px);
+        }
+      } 
+
+      .rotated {
+        transform: rotate(45deg);
+      }
+      .slideInLeft {
+        animation-name: slideInLeft;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+      }
+      .slideInRight {
+        animation-name: slideInRight;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+      }
+      .slower {
+        animation-duration: 8s;
+        animation-delay: 1s;
+      }
+      .normal {
+        animation-duration: 6.5s;
+        animation-delay: 2s;
+      }
+      .faster {
+        animation-duration: 6s;
+        animation-delay: 3s;
+      }
+
+
+
+      #mountain-1 {
+        left: 240px;
+      }
+      #mountain-2 {
+        left: 585px;
+        width: 450px;
+        height: 450px;
+      }
+      #mountain-3 {
+        right: 240px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="sun"></div>
+    <div id="mountain-1" class="mountain rotated"></div>
+    <div id="mountain-2" class="mountain rotated"></div>
+    <div id="mountain-3" class="mountain rotated"></div>
+    <img src="cloud.png" class="cloud cloud-large slideInLeft slower">
+    <img src="cloud.png" class="cloud cloud-small slideInLeft normal">
+    <img src="cloud.png" class="cloud cloud-large slideInLeft faster">
+    <img src="cloud.png" class="cloud cloud-large slideInRight cloud-from-right slower">
+    <img src="cloud.png" class="cloud cloud-small slideInRight cloud-from-right normal">
+    <img src="cloud.png" class="cloud cloud-large slideInRight cloud-from-right faster">
+  </body>
+</html>

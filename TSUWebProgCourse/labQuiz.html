@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Transitions & Animations</title>
+
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      h1,
+      p {
+        text-align: center;
+      }
+
+      h1 {
+        margin-top: 50px;
+        margin-bottom: 100px;
+      }
+
+      p {
+        margin-top: 50px;
+        font-size: 12px;
+        font-weight: 50;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      #container {
+        display: block;
+        text-align: center;
+        justify-content: center;
+      }
+      .square {
+        display: inline-block;
+        background-color: blue;
+        width: 180px;
+        height: 100px;
+        margin-right: 50px;
+        border-radius: 10px;
+        box-shadow: 3px 3px 5px rgba(201, 201, 201, 0.474);
+        text-align: center;
+        vertical-align: center;
+        font-size: 12px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        padding-top: 80px;
+      }
+
+      /* Object 2 */
+      @keyframes scaleDownAndEtc {
+        80% {
+          transform: scale(0.8) rotate(90deg) translateY(-50px) skewX(10deg);
+        }
+        100% {
+          transform: scale(0.9) rotate(90deg) translateY(-50px) skewX(10deg);
+        }
+      }
+
+      @keyframes topToBottom {
+        0% {
+          transform: translateY(-500px);
+        }
+
+        100% {
+          transform: translateY(1000px);
+        }
+      }
+
+      @keyframes spinning {
+        25% {
+          border-color: #fcde9c;
+        }
+        50% {
+          border-color: #ffa552;
+        }
+        75% {
+          border-color: #ba5624;
+        }
+        100% {
+          border-color: #c2f15dd9;
+          transform: rotate(360deg);
+        }
+      }
+
+      #object1 {
+        transition-property: border-radius;
+        transition-duration: 3s;
+        transition-timing-function: ease-in-out;
+        transition-delay: 0.3s;
+        background-color: #fcde9c;
+      }
+      #object1:hover {
+        border-radius: 50%;
+      }
+
+      #object2 {
+        animation-name: scaleDownAndEtc;
+        animation-duration: 5s;
+        animation-timing-function: ease;
+        animation-iteration-count: infinite;
+        background-color: #ffa552;
+      }
+
+      #object3 {
+        animation-name: topToBottom;
+        animation-delay: 2s;
+        animation-duration: 2s;
+        animation-timing-function: ease-in;
+        animation-iteration-count: 2;
+        background-color: #ba5624;
+      }
+
+      #object4 {
+        background-color: #f9da5f;
+        transform: rotate(0deg);
+        transition-timing-function: ease;
+        transition-delay: 1s;
+        transition-duration: 1.5s;
+      }
+      #object4:hover {
+        background-color: blue;
+        transform: rotate(180deg);
+      }
+
+      #object5 {
+        background-color: #c2f15dd9;
+        animation-name: spinning;
+        animation-duration: 5s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        border: 3px solid rgb(160, 242, 79);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CSS Transitions and Animations</h1>
+    <div id="container">
+      <div id="object1" class="square">Hover Me (Transition)</div>
+      <div id="object2" class="square">Animate me</div>
+      <div id="object3" class="square">Move me</div>
+      <div id="object4" class="square">Hover me (Combined)</div>
+      <div id="object5" class="square">Bonus Task</div>
+    </div>
+    <p>Created by Aron Rez Arboleda; Laboratory Quiz 1</p>
+  </body>
+</html>

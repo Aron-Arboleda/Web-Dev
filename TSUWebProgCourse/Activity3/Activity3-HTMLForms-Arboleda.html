@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      background: linear-gradient(
+        90deg,
+        rgb(71, 71, 223) 10%,
+        rgb(29, 235, 152) 100%
+      );
+      font-family: "Segoe UI";
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+      background-color: aqua;
+    }
+    h1 {
+      text-align: center;
+      color: #025dbe;
+      font-size: 30px;
+    }
+    form {
+      width: 40%;
+      height: 1100px;
+      text-align: center;
+      padding: 40px;
+      margin: 40px 0px;
+      background-color: white;
+      border-radius: 10px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    input[type="number"],
+    select  {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: 2px solid #cccccc;
+      border-radius: 4px;
+      background-color: #f8f8f8;
+      font-size: 16px;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus,
+    input[type="email"]:focus,
+    input[type="number"]:focus,
+    select:focus  {
+      border-color: #2fadf1;
+      box-shadow: 0 0 8px rgba(1, 109, 171, 0.8);
+      outline: none;
+    }
+
+    input[type="radio"] {
+        appearance: none;
+        width: 18px;
+        height: 18px;
+        border: 2px solid #cccccc;
+        border-radius: 50%;
+        outline: none;
+        background-color: transparent;
+        cursor: pointer;
+        display: inline-block;
+        transition: background-color 0.3s;
+    }
+    input[type="radio"]:checked {
+        background-color: #0e79e4;
+    }
+    #inputsDiv {
+      margin: 30px 10px;
+      text-align: left;
+    }
+    input[type="reset"] {
+      margin: 30px 10px 30px 10px;
+      color: white;
+      background: rgb(15, 120, 240);
+      border: none;
+      border-radius: 5px;
+      width: 100px;
+      height: 25px;
+      font-size: 15px;
+    }
+    input[type="submit"] {
+      margin: 30px 10px 30px 10px;
+      color: white;
+      background: linear-gradient(
+        90deg,
+        rgb(71, 71, 223) 10%,
+        rgb(29, 235, 152) 100%
+      );
+      border: none;
+      border-radius: 25px;
+      width: 200px;
+      height: 50px;
+      font-size: 20px;
+    }
+  </style>
+  <body>
+    <form action="" method="GET|POST">
+      <h1>Personal Details</h1>
+      <div id="inputsDiv">
+        <input type="text" name="name" placeholder="Name" /> <br />
+        <input type="password" name="password" placeholder="Password" /> <br />
+        <input type="email" name="email" placeholder="Email" /> <br />
+        <input type="radio" name="gender" value="male"> Male <input type="radio" name="gender" value="female"> Female <br>
+        <input type="number" name="contact" placeholder="Contact no." /> <br />
+      </div>
+      <h1>Educational Qualifications</h1>
+      <div id="inputsDiv">
+        Degree
+        <select name="degrees" id="degreeSelect">
+          <option value="bsc_cs">Bachelor of Science in Computer Science (BSc CS)</option>
+          <option value="ba_psychology">Bachelor of Arts in Psychology (BA Psychology)</option>
+          <option value="bba">Bachelor of Business Administration (BBA)</option>
+          <option value="bfa">Bachelor of Fine Arts (BFA)</option>
+          <option value="be">Bachelor of Engineering (BE)</option>
+          <option value="bsn">Bachelor of Science in Nursing (BSN)</option>
+          <option value="bed">Bachelor of Education (B.Ed)</option>
+          <option value="msc_data_science">Master of Science in Data Science (MSc Data Science)</option>
+          <option value="mba">Master of Business Administration (MBA)</option>
+          <option value="ma_history">Master of Arts in History (MA History)</option>
+          <option value="md">Doctor of Medicine (MD)</option>
+          <option value="phd_physics">Doctor of Philosophy in Physics (PhD Physics)</option>
+        </select>
+        Computer Studies
+        <select name="computerDegrees" id="computerDegreeSelect">
+          <option value="bsc_ce">Bachelor of Science in Computer Engineering (BSc CE)</option>
+          <option value="bsc_se">Bachelor of Science in Software Engineering (BSc SE)</option>
+          <option value="bsc_it">Bachelor of Science in Information Technology (BSc IT)</option>
+          <option value="bsc_cybersecurity">Bachelor of Science in Cybersecurity (BSc Cybersecurity)</option>
+          <option value="bsc_ds">Bachelor of Science in Data Science (BSc DS)</option>
+          <option value="msc_cs">Master of Science in Computer Science (MSc CS)</option>
+          <option value="msc_ai">Master of Science in Artificial Intelligence (MSc AI)</option>
+          <option value="msc_is">Master of Science in Information Systems (MSc IS)</option>
+          <option value="msc_cybersecurity">Master of Science in Cybersecurity (MSc Cybersecurity)</option>
+          <option value="phd_cs">Doctor of Philosophy in Computer Science (PhD CS)</option>
+          <option value="phd_ai">Doctor of Philosophy in Artificial Intelligence (PhD AI)</option>
+        </select>
+        Hobbies <br><input type="checkbox"> Coding <input type="checkbox"> Writing <input type="checkbox"> Reading
+      </div>
+      <h1>Address</h1>
+      <textarea name="address" cols="50" rows="10"></textarea>
+      <br>Attach Resume: <input type="file" name="fileupload">
+      <br><input type="reset" /><br><input type="submit" />
+    </form>
+  </body>
+</html>
+<!--
+
+Sex: <input type="radio" /> Male <input type="radio" /> Female
+<br /><br />
+Vaccinated: <input type="radio" /> Yes <input type="radio" /> No
+<br /><br />
+Year:
+<select name="Year" id="">
+  <option value="1" selected>1st Year</option>
+  <option value="1">2nd Year</option>
+  <option value="1">3rd Year</option>
+  <option value="1">4th Year</option>
+</select>
+<br /><br />
+Date of birth: <input type="date" /><br /><br />
+
+-->
