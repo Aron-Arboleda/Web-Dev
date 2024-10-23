@@ -50,9 +50,9 @@ router.delete("/api/users/:id", resolveIndexByUserId, (request, response) => {
     return response.status(200).send(mockUsers);
 });
 
-router.post("/api/users", checkSchema(createUserValidationSchema), 
-    createUserHandler()
-);
+// router.post("/api/users", checkSchema(createUserValidationSchema), 
+//     createUserHandler()
+// );
 
 export default router;
 

@@ -10,13 +10,18 @@ import MongoStore from "connect-mongo";
 import "./strategies/discord-strategy.mjs";
 import { User } from "./mongoose/schemas/user.mjs";
 import { hashPassword } from "./utils/helpers.mjs";
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express(); //express is a function so we it needs to be called to make an application
 
-mongoose
-    .connect("mongodb://localhost/express_tutorial")
-    .then(() => console.log("Connected to the database"))
-    .catch((err) => console.log(`Error ${err}`));
+const uri = process.env.MONGO_URI;
+
+// mongoose
+//     .connect(uri)
+//     .then(() => console.log("Connected to the database"))
+//     .catch((err) => console.log(`Error ${err}`));
 
 app.use(express.json());
 app.use(cookieParser("helloworld"));
@@ -28,9 +33,9 @@ app.use(session(
         cookie: { 
             maxAge: 60000 * 60 //to set the expiration time of the cookie
         },
-        store: MongoStore.create({
-            client: mongoose.connection.getClient()
-        })
+        // store: MongoStore.create({
+        //     client: mongoose.connection.getClient()
+        // })
     }
 ));
 
