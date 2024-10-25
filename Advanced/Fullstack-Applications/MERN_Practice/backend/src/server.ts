@@ -12,35 +12,15 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-import { MongoClient, ServerApiVersion } from "mongodb";
-
+// Connect to MongoDB using Mongoose
 const uri: string = process.env.MONGODB_URI as string;
 
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client: MongoClient = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  },
-});
-
-async function run(): Promise<void> {
-  try {
-    // Connect the client to the server (optional starting in v4.7)
-    await client.connect();
-    // Send a ping to confirm a successful connection
-    await client.db("admin").command({ ping: 1 });
-    console.log(
-      "Pinged your deployment. You successfully connected to MongoDB!"
-    );
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
-  }
-}
-
-run().catch((error: Error) => console.error(error));
+mongoose
+  .connect(uri, {
+    serverSelectionTimeoutMS: 5000, // Optional: timeout after 5 seconds if no connection
+  })
+  .then(() => console.log("Connected to MongoDB with Mongoose!"))
+  .catch((error) => console.error("Error connecting to MongoDB:", error));
 
 // API routes
 app.get("/health", (_req: Request, res: Response) => {
@@ -48,15 +28,15 @@ app.get("/health", (_req: Request, res: Response) => {
 });
 
 // Serve static frontend files
-app.use(express.static(path.join(__dirname, "../../dist/frontend")));
+app.use(express.static(path.join(__dirname, "../../frontend/dist")));
 
 // Serve index.html for all non-API routes (for React routing)
 app.get("*", (_req: Request, res: Response) => {
-  res.sendFile(path.join(__dirname, "../../dist/frontend/index.html"));
+  res.sendFile(path.join(__dirname, "../../frontend/dist/index.html"));
 });
 
 const PORT: string | number = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-  console.log(`Server is running on PORT: ${PORT}`);
+  console.log(`Server is running on PORT: http://localhost:${PORT}`);
 });
