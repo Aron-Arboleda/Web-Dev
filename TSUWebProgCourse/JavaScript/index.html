@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      #container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100%;
+        gap: 20px;
+      }
+
+      input[type="button"],
+      button {
+        background-color: white;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <input
+        class="buttonComponent"
+        type="button"
+        onclick="sayHello('asd', 67)"
+        value="Say Hello"
+      />
+      <input
+        class="buttonComponent"
+        type="button"
+        value="Print"
+        onclick="window.print()"
+      />
+
+      <button id="actionButton" onclick="actionEvent()">Click Me!</button>
+      <button id="loopButton" onclick="loop()">Loop!</button>
+    </div>
+    <script type="text/javascript">
+      const container = document.getElementById("container");
+      function sayHello(name, age) {
+        container.append(`Name is ${name} and he/she is ${age} years old <br>`);
+      }
+
+      function actionEvent() {
+        const hello = 2;
+        switch (hello) {
+          case 1:
+            container.append(`1111111111111111111111111111`);
+            break;
+          case 2:
+            container.append(`2222222222222222222222222222`);
+          default:
+            break;
+        }
+      }
+
+      function loop() {
+        let count = 0;
+        container.append(`yo`);
+        while (count <= 100) {
+          container.append(`o`);
+          count++;
+        }
+      }
+
+      function labellll(params) {
+        container.append(`1111111111111111111111111111`);
+        outerloop: for (let i = 0; i < 5; i++) {
+          container.append(i);
+          innerloop: for (let j = 0; j < 10; j++) {
+            const element = array[j];
+
+            if (j == 8) {
+              break outerloop;
+            }
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

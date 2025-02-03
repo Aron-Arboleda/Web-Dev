@@ -1,0 +1,74 @@
+<!-- Name: Aron Rez D. Arboleda -->
+<!-- Seciton: BSCS-3C -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div id="mainContainer">
+      <div id="calculator">
+        <h1>Calculator</h1>
+        <input type="text" value="0" id="resultScreen" readonly />
+        <div id="numInputsContainer">
+          <input
+            class="numInputs"
+            type="number"
+            placeholder="first number"
+            id="firstNumInput"
+          />
+          <input
+            class="numInputs"
+            type="number"
+            placeholder="second number"
+            id="secondNumInput"
+          />
+        </div>
+        <div id="operationsDiv">
+          <button
+            id="btnAdd"
+            onclick="updateResultScreen(
+              add(getNum(firstNumInput), getNum(secondNumInput)), '+'
+              )"
+            class="btnOperation"
+          >
+            Add
+          </button>
+          <button
+            id="btnSubtract"
+            onclick="updateResultScreen(
+            subtract(getNum(firstNumInput), getNum(secondNumInput)), '-'
+            )"
+            class="btnOperation"
+          >
+            Subtract
+          </button>
+          <button
+            id="btnMultiply"
+            onclick="updateResultScreen(
+            multiply(getNum(firstNumInput), getNum(secondNumInput)), 'x'
+            )"
+            class="btnOperation"
+          >
+            Multiply
+          </button>
+          <button
+            id="btnDivide"
+            onclick="updateResultScreen(
+            divide(getNum(firstNumInput), getNum(secondNumInput)), '/'
+            )"
+            class="btnOperation"
+          >
+            Divide
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
